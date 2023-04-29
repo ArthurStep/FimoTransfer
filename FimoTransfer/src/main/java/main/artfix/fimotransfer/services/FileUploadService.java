@@ -11,7 +11,8 @@ import java.util.Random;
 
 @Service
 public class FileUploadService {
-    public void uploadFile(MultipartFile file) throws Exception{
+    public String userCode;
+    public void uploadFile(MultipartFile file) throws Exception {
         String uploadDir = "uploads";
         String projectDir = new File("").getAbsolutePath();
 
@@ -22,12 +23,14 @@ public class FileUploadService {
         assert originalFileName != null;
         String fileExtension = originalFileName.substring(originalFileName.lastIndexOf('.'));
 
-        String code = String.format("%06d", new Random().nextInt(999999));
-        Path filePath = uploadPath.resolve(code + fileExtension);
+        userCode = String.format("%06d", new Random().nextInt(999999));
+        Path filePath = uploadPath.resolve(userCode + fileExtension);
         while (Files.exists(filePath)) {
-            code = String.format("%06d", new Random().nextInt(999999));
-            filePath = uploadPath.resolve(code + fileExtension);
+            userCode = String.format("%06d", new Random().nextInt(999999));
+            filePath = uploadPath.resolve(userCode + fileExtension);
         }
+        System.out.println("New Code For File: " + userCode + fileExtension);
+        userCode = userCode + fileExtension;
 
         file.transferTo(filePath.toFile());
     }
