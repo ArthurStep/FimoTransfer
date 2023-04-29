@@ -7,4 +7,6 @@ FimoTransfer secure file transfer system with code.
 
 * Limit setup.
 
+* Private and secure system.
+
 Support project https://ko-fi.com/arthurstep.
