@@ -2,7 +2,6 @@ package main.artfix.fimotransfer.services;
 
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
-import main.artfix.Coft;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -12,8 +11,6 @@ import java.io.FileInputStream;
 public class FileDownloadService {
     public void downloadFile(HttpServletResponse response, String fileName) {
         try {
-            Coft.logging.log("Download File Function Used");
-            Coft.logging.PrintLogged();
             response.setContentType("application/octet-stream");
             response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
             File file = new File("uploads/" + fileName);
@@ -30,8 +27,6 @@ public class FileDownloadService {
 
         } catch (Exception e) {
             e.printStackTrace();
-            Coft.logging.log("Exception take");
-            Coft.logging.PrintLogged();
         }
     }
 }

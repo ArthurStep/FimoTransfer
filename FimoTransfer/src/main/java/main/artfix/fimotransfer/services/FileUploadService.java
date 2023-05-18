@@ -1,6 +1,5 @@
 package main.artfix.fimotransfer.services;
 
-import main.artfix.Coft;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,8 +15,6 @@ public class FileUploadService {
 
     public void uploadFile(MultipartFile file) {
         try {
-            Coft.logging.log("Upload File Function Used");
-            Coft.logging.PrintLogged();
             String uploadDir = "uploads";
             String projectDir = new File("").getAbsolutePath();
 
@@ -40,8 +37,6 @@ public class FileUploadService {
             file.transferTo(filePath.toFile());
         } catch (Exception e) {
             e.printStackTrace();
-            Coft.logging.log("Exception take");
-            Coft.logging.PrintLogged();
         }
     }
 }
