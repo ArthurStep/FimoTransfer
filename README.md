@@ -10,5 +10,3 @@ FimoTransfer secure file transfer system with code.
 * Private and secure system.
 
 Project by Arthur Stepanyan: https://github.com/ArthurStep.
-
-Support project: https://ko-fi.com/arthurstep.
