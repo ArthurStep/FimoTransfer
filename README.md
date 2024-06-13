@@ -1,5 +1,5 @@
 # FimoTransfer
-FimoTransfer secure file transfer system with code.
+FimoTransfer secure file transfer app.
 
 # Features
 * Fast upload.
