@@ -26,7 +26,6 @@ public class FileController {
             model.addAttribute("uploadMessage", "Upload success. Your download Code: "
                     + fileUploadService.userCode + ".");
         } catch (Exception e) {
-            e.printStackTrace();
             model.addAttribute("uploadMessage", "We have an Error.");
         }
         return "/home";
@@ -39,7 +38,6 @@ public class FileController {
             fileDownloadService.downloadFile(responseController, fileName);
             model.addAttribute("downloadMessage", "Download success.");
         } catch (Exception e) {
-            e.printStackTrace();
             model.addAttribute("downloadMessage", "We have an error: " + e.getMessage());
         }
     }

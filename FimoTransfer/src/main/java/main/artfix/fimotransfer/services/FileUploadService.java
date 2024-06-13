@@ -13,8 +13,7 @@ import java.util.Random;
 public class FileUploadService {
     public String userCode;
 
-    public void uploadFile(MultipartFile file) {
-        try {
+    public void uploadFile(MultipartFile file) throws Exception{
             String uploadDir = "uploads";
             String projectDir = new File("").getAbsolutePath();
 
@@ -35,8 +34,5 @@ public class FileUploadService {
             userCode = userCode + fileExtension;
 
             file.transferTo(filePath.toFile());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

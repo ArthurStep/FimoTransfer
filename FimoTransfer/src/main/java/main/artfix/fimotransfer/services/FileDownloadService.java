@@ -9,8 +9,8 @@ import java.io.FileInputStream;
 
 @Service
 public class FileDownloadService {
-    public void downloadFile(HttpServletResponse response, String fileName) {
-        try {
+    public void downloadFile(HttpServletResponse response, String fileName) throws Exception{
+
             response.setContentType("application/octet-stream");
             response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
             File file = new File("uploads/" + fileName);
@@ -24,9 +24,5 @@ public class FileDownloadService {
             outputStream.flush();
             outputStream.close();
             fileInputStream.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
